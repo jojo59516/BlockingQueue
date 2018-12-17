@@ -1,0 +1,4 @@
+﻿  main.cpp
+c:\users\jojo5\source\repos\blockingqueue\blockingqueue\main.cpp(25): warning C4018: “<”: 有符号/无符号不匹配
+c:\users\jojo5\source\repos\blockingqueue\blockingqueue\main.cpp(37): warning C4018: “<”: 有符号/无符号不匹配
+  BlockingQueue.vcxproj -> C:\Users\jojo5\source\repos\BlockingQueue\Debug\BlockingQueue.exe
