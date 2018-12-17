@@ -14,7 +14,7 @@ int main()
 
 	const std::size_t nTasks = 10;
 
-	jojo::BlockingQueue<int> queue;
+	jojo::BlockingQueue<std::size_t> queue;
 
 	printf("begin!\n");
 
@@ -26,9 +26,9 @@ int main()
 			{
 				std::this_thread::sleep_for(std::chrono::milliseconds(500));
 
-				printf("producer[%d]: push %d\n", i, i);
-				//queue.Push(i);
-				while (!queue.TryPush(i));
+				printf("producer[%zu]: push %zu\n", i, i);
+				queue.Push(i);
+				//while (!queue.TryPush(i));
 			}
 		}, i);
 
@@ -38,9 +38,9 @@ int main()
 			{
 				std::this_thread::sleep_for(std::chrono::milliseconds(100));
 
-				//const auto data = queue.Pop();
-				int data = -1;  while (!queue.TryPop(data));
-				printf("consumer[%d]: pop %d\n", i, data);
+				const auto data = queue.Pop();
+				//std::size_t data = -1;  while (!queue.TryPop(data));
+				printf("consumer[%zu]: pop %zu\n", i, data);
 			}
 		}, i);
 	}
